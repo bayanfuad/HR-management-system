@@ -1,11 +1,12 @@
 const employees =[];
 
-function Employee(employeeId,fullName,department,level){
+function Employee(employeeId,fullName,department,level,image){
     this.employeeId = employeeId;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
      this.salary = this.randomNumberSalary ();
+     this.image = image ;
     employees.push(this);
 }
 Employee.prototype.randomNumberSalary =function ()
@@ -17,45 +18,47 @@ Employee.prototype.randomNumberSalary =function ()
         this.salary = Math.floor(Math.random() * (1000- 500 + 1) +500) 
     };
     this.salary = this.salary-this.salary*.075
-    employees.push(this.salary);
-
     // console.log(this.salary);
     return this.salary
 }
+Employee.prototype.print =function (){
+document.write(`${this.fullName} : ${this.level} JD <br>`)};
 
- 
-Employee.prototype.print = function (){
-    document.write(`${this.fullName} :${this.salary} JD <br>`)
+const employee1 = new Employee(1000,"Ghazi Samer","Administration","Senior" ,"../assets/Ghazi.jpg")
+const employee2 = new Employee(1001,"Lana Ali","AFinance","Senior", "../assets/Lana.jpg")
+const employee3 = new Employee(1002,"Tamara Ayoub","Marketing","Senior","../assets/Tamara.jpg")
+const employee4 = new Employee(1003,"Safi Walid","Administration","Mid-Senior","../assets/Safi.jpg")
+const employee6 = new Employee(1005,"Omar Zaid","Development","Senior","../assets/Omar.jpg")
+const employee7 = new Employee(1006,"Rana Saleh","Development","Junior","../assets/Rana.jpg")
+const employee8 = new Employee(1007,"Hadi Ahmad","Finance","Mid-Senior","../assets/Hadi.jpg")
 
+//  console.log(employees);
+//  employee1.print();
+//  employee2.print();
+//  employee3.print()
+//  employee4.print()
+//  employee5.print()
+//  employee6.print()
+//  employee7.print()
+
+ const h1El = document.getElementById("headingID");
+ h1El.textContent ="HR Managment System";
+ h1El.style.color = "#354259";
+ document.body.style.backgroundColor = "#ECE5C7";
+
+ Employee.prototype.render = function(){
+   const par = document.createElement("p");
+const divEl= document.getElementById("pic")
+par.textContent = "Name"+this.fullName+"Department"+this.department+"Level"+this.level + "salary"+this.salary;
+divEl.appendChild(par);
+const image = document.createElement("img")
+ image.src = this.image;
+ image.alt = "photo"
+ divEl.appendChild(image);
+ divEl.style.cssText ="text-align:center"
+image.style.cssText ="hight:25% ; width:25%"
 }
 
-
-// console.log(`${this.fullName} : ${this.salary} JD`)
-// for(let i=0; i<=employees.length; i++){
-//     employees[i].print
- 
-//  document.write("anaswelcome")
-
-const employee1 = new Employee(1000,"Ghazi Samer","Administration","Senior")
-const employee2 = new Employee(1001,"Lana Ali","AFinance","Senior")
-const employee3 = new Employee(1002,"Tamara Ayoub","Marketing","Senior")
-const employee4 = new Employee(1003,"Safi Walid","Administration","Mid-Senior")
-const employee5 = new Employee(1004,"Safi Walid","Administration","Mid-Senior")
-const employee6 = new Employee(1005,"Omar Zaid","Development","Senior")
-const employee7 = new Employee(1006,"Rana Saleh","Development","Junior")
-const employee8 = new Employee(1007,"Hadi Ahmad","Finance","Mid-Senior")
-
- console.log(employees);
- employee1.print();
- employee2.print();
- employee3.print();
- employee4.print();
- employee5.print();
- employee6.print();
- employee7.print();
- employee8.print();
-// console.log(employee2)
-// Employee.prototype.randomNumbeSalaryr =function (min, max)
-// {
-// 	return Math.floor(Math.random() * (max - min + 1) + min);
-// }
+  for ( let i =0; i<=employees.length;i++){
+   employees[i].render();
+ }
