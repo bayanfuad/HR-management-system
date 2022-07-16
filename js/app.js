@@ -62,7 +62,7 @@ const image = document.createElement("img")
 //  divEl.style.cssText ="text-align:center"
 // image.style.cssText ="hight:25% ; width:25%"
 // image.style.backgroundColor = "#C2DED1";
-image.setAttribute("id","imgID");
+image.setAttribute("id","img");
 divEl.setAttribute("class","div1")
 divEl.classList.add("fromJs");
 }
