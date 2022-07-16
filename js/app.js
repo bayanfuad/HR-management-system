@@ -23,8 +23,9 @@ Employee.prototype.randomNumberSalary =function ()
 }
 // Employee.prototype.print =function (){
 // document.write(`${this.fullName} : ${this.level} JD <br>`)};
+// instances
 
-const employee1 = new Employee(1000,"Ghazi Samer","Administration","Senior" ,"../assets/Ghazi.jpg")
+const employee1 = new Employee(1000,"Ghazi Samer","Administration","Senior" ,"https://github.com/LTUC/new-prep-course-std/blob/main/Day10/Task/assets/Ghazi.jpg?raw=true")
 const employee2 = new Employee(1001,"Lana Ali","AFinance","Senior", "../assets/Lana.jpg")
 const employee3 = new Employee(1002,"Tamara Ayoub","Marketing","Senior","../assets/Tamara.jpg")
 const employee4 = new Employee(1003,"Safi Walid","Administration","Mid-Senior","../assets/Safi.jpg")
