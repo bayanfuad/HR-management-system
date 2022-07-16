@@ -21,8 +21,8 @@ Employee.prototype.randomNumberSalary =function ()
     // console.log(this.salary);
     return this.salary
 }
-Employee.prototype.print =function (){
-document.write(`${this.fullName} : ${this.level} JD <br>`)};
+// Employee.prototype.print =function (){
+// document.write(`${this.fullName} : ${this.level} JD <br>`)};
 
 const employee1 = new Employee(1000,"Ghazi Samer","Administration","Senior" ,"../assets/Ghazi.jpg")
 const employee2 = new Employee(1001,"Lana Ali","AFinance","Senior", "../assets/Lana.jpg")
@@ -47,18 +47,29 @@ const employee8 = new Employee(1007,"Hadi Ahmad","Finance","Mid-Senior","../asse
  document.body.style.backgroundColor = "#ECE5C7";
 
  Employee.prototype.render = function(){
+const mainpo = document.getElementById("mainID")
+const divEl= document.createElement("div");
    const par = document.createElement("p");
-const divEl= document.getElementById("pic")
-par.textContent = "Name"+this.fullName+"Department"+this.department+"Level"+this.level + "salary"+this.salary;
+
+par.textContent = "Name : "+this.fullName              +"Department : "+this.department              +"Level : "+this.level;
 divEl.appendChild(par);
 const image = document.createElement("img")
  image.src = this.image;
  image.alt = "photo"
  divEl.appendChild(image);
- divEl.style.cssText ="text-align:center"
-image.style.cssText ="hight:25% ; width:25%"
+ mainpo.appendChild(divEl);
+//  divEl.style.cssText ="text-align:center"
+// image.style.cssText ="hight:25% ; width:25%"
+// image.style.backgroundColor = "#C2DED1";
+image.setAttribute("id","imgID");
+divEl.setAttribute("class","div1")
+divEl.classList.add("fromJs");
 }
 
-  for ( let i =0; i<=employees.length;i++){
+
+function final(){
+  for ( let i =0; i< employees.length;i++){
    employees[i].render();
  }
+}
+final();
